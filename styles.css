@@ -5,6 +5,7 @@ body {
   padding: 0;
   font-family: "Bad Script", cursive;
   overflow-x: hidden;
+  height: 100%;
 }
 
 body {
@@ -20,13 +21,14 @@ body {
   background: #ffffff;
   border: 2px solid #ccc;
   border-radius: 16px;
-  padding: 30px;
+  padding: 20px;
   width: 90%;
   max-width: 1000px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 30px;
+  gap: 20px;
   opacity: 0;
   animation: fadeIn 0.8s ease forwards;
 }
@@ -45,21 +47,21 @@ body {
 
 .left-side h1 {
   margin: 0;
-  font-size: 3.5rem;
+  font-size: 3rem;
   font-family: "Bad Script", cursive;
   font-weight: 700;
 }
 
 .left-side p {
   margin-top: 8px;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   opacity: 0.75;
 }
 
 /* RIGHT SIDE */
 .right-side {
   position: relative;
-  flex: 1;
+  width: 100%;
 }
 
 /* Hide radio inputs */
@@ -71,13 +73,13 @@ input[type="radio"] {
 .cards {
   position: relative;
   width: 100%;
-  height: 300px;
+  height: 200px;
   margin-bottom: 20px;
 }
 
 .card {
   position: absolute;
-  width: 60%;
+  width: 80%;
   height: 100%;
   left: 0;
   right: 0;
@@ -142,10 +144,11 @@ input[type="radio"] {
   border-radius: 14px;
   background-color: #f0f0f0;
   color: #333;
-  padding: 20px;
+  padding: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
   text-align: left;
   position: relative;
+  width: 100%;
 }
 
 .song-info {
@@ -157,7 +160,7 @@ input[type="radio"] {
 }
 
 .song-info .title {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-family: "Comic Neue", cursive;
   font-weight: 700;
   margin-bottom: 5px;
@@ -168,7 +171,7 @@ input[type="radio"] {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 5px;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-family: "Comic Neue", cursive;
 }
 
@@ -181,7 +184,7 @@ input[type="radio"] {
 }
 
 .time-indicator {
-  font-size: 1rem;
+  font-size: 0.9rem;
   margin-top: 3px;
   display: flex;
   justify-content: space-between;
@@ -209,14 +212,14 @@ input[type="radio"] {
 .controls {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 15px;
   margin-top: 15px;
 }
 
 .controls button {
   background: none;
   border: none;
-  font-size: 2.5rem;
+  font-size: 2rem;
   cursor: pointer;
   transition: transform 0.3s ease;
 }
@@ -241,7 +244,7 @@ input[type="radio"] {
 .favorite-btn {
   background: none;
   border: none;
-  font-size: 2rem;
+  font-size: 1.8rem;
   cursor: pointer;
   color: #777;
   transition: color 0.3s ease;
@@ -335,7 +338,6 @@ input[type="radio"] {
 /* Media Query for Tablets/Phones */
 @media (max-width: 768px) {
   .container {
-    flex-direction: column;
     width: 100%;
     height: 100vh;
     padding: 10px;
@@ -350,12 +352,7 @@ input[type="radio"] {
   }
 
   .card {
-    width: 80%;
-    height: 100%;
-  }
-
-  .controls button {
-    font-size: 2rem;
+    width: 90%;
   }
 
   .left-side h1 {
@@ -363,7 +360,7 @@ input[type="radio"] {
   }
 
   .left-side p {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
 
   .player {
@@ -372,19 +369,19 @@ input[type="radio"] {
   }
 
   .song-info .title {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
   }
 
   .song-details {
-    font-size: 1rem;
-  }
-
-  .time-indicator {
     font-size: 0.9rem;
   }
 
+  .time-indicator {
+    font-size: 0.8rem;
+  }
+
   .controls button {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
 
   .extra-controls {
@@ -403,11 +400,7 @@ input[type="radio"] {
   }
 
   .card {
-    width: 90%;
-  }
-
-  .controls button {
-    font-size: 1.8rem;
+    width: 95%;
   }
 
   .left-side h1 {
@@ -423,19 +416,23 @@ input[type="radio"] {
   }
 
   .song-info .title {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
 
   .song-details {
-    font-size: 0.9rem;
-  }
-
-  .time-indicator {
     font-size: 0.8rem;
   }
 
+  .time-indicator {
+    font-size: 0.7rem;
+  }
+
   .controls button {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
+  }
+
+  .extra-controls {
+    margin-top: 5px;
   }
 }
 
