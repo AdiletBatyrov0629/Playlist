@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Плейлист для булочки</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Comic+Neue:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bad+Script&family=Oleo+Script:wght@400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="left-side">
+        <h1>Плейлист</h1>
+        <p>Песни, что напоминают мне о тебе</p>
+      </div>
+      <div class="right-side">
+        <input type="radio" name="slider" id="item-1" checked />
+        <input type="radio" name="slider" id="item-2" />
+        <input type="radio" name="slider" id="item-3" />
+        <input type="radio" name="slider" id="item-4" />
+        <input type="radio" name="slider" id="item-5" />
+
+        <div class="cards">
+          <label class="card" for="item-1" id="song-1">
+            <img src="i like her.jpg" alt="I like her" />
+          </label>
+          <label class="card" for="item-2" id="song-2">
+            <img src="Me and your mama.webp" alt="Me and your mama" />
+          </label>
+          <label class="card" for="item-3" id="song-3">
+            <img src="Buttercup.jpg"s alt="Buttercup" />
+          </label>
+          <label class="card" for="item-4" id="song-4">
+            <img src="Little Dark Age.jpg" alt="Little dark age" />
+          </label>
+          <label class="card" for="item-5" id="song-5">
+            <img src="Chop Suey!.jpg" alt="Chop Suey!" />
+          </label>
+        </div>
+
+        <div class="player">
+          <!-- Аудио элементы для каждой песни -->
+          <audio id="audio-1" src="i_like_her.mp3"></audio>
+          <audio id="audio-2" src="me_and_your_mama.mp3"></audio>
+          <audio id="audio-3" src="buttercup.mp3"></audio>
+          <audio id="audio-4" src="little_dark_age.mp3"></audio>
+          <audio id="audio-5" src="chop_suey.mp3"></audio>
+
+          <div class="song-info active" id="song-info-1">
+            <div class="title">20191009 I like her</div>
+            <div class="song-details">
+              <span class="artist">Mac Demarco</span>
+              <span class="duration">2:16</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress"></div>
+            </div>
+            <div class="time-indicator">
+              <span class="elapsed"></span>
+              <span class="remaining"></span>
+            </div>
+          </div>
+          <div class="song-info" id="song-info-2">
+            <div class="title">Me and Your Mama</div>
+            <div class="song-details">
+              <span class="artist">Childish Gambino</span>
+              <span class="duration">6:19</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress"></div>
+            </div>
+            <div class="time-indicator">
+              <span class="elapsed"></span>
+              <span class="remaining"></span>
+            </div>
+          </div>
+          <div class="song-info" id="song-info-3">
+            <div class="title">Buttercup</div>
+            <div class="song-details">
+              <span class="artist">Jack Stauber</span>
+              <span class="duration">3:28</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress"></div>
+            </div>
+            <div class="time-indicator">
+              <span class="elapsed"></span>
+              <span class="remaining"></span>
+            </div>
+          </div>
+          <div class="song-info" id="song-info-4">
+            <div class="title">Little Dark Age</div>
+            <div class="song-details">
+              <span class="artist">MGMT</span>
+              <span class="duration">4:59</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress"></div>
+            </div>
+            <div class="time-indicator">
+              <span class="elapsed"></span>
+              <span class="remaining"></span>
+            </div>
+          </div>
+          <div class="song-info" id="song-info-5">
+            <div class="title">Chop Suey!</div>
+            <div class="song-details">
+              <span class="artist">System Of A Down</span>
+              <span class="duration">3:25</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress"></div>
+            </div>
+            <div class="time-indicator">
+              <span class="elapsed"></span>
+              <span class="remaining"></span>
+            </div>
+          </div>
+
+          <div class="controls">
+            <button id="prev">◁</button>
+            <button id="pause">||</button>
+            <button id="next">▷</button>
+            <button id="loop">↻</button>
+            <button id="shuffle">⇄</button>
+          </div>
+          <div class="extra-controls">
+            <button id="favorite" class="favorite-btn">♡</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-overlay" id="notificationModal">
+      <div class="modal-content" id="modalContent">
+        <h2>Плейлист для тебя, моя очаровашка</h2>
+        <p>С 8 марта, моя любимая девочка💜</p>
+        <button class="modal-close" onclick="closeModal()">Открыть</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

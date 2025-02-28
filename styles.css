@@ -1,0 +1,444 @@
+/* Base styles & pastel theme */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Bad Script", cursive;
+  overflow-x: hidden;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #fafafa;
+  text-align: center;
+}
+
+.container {
+  background: #ffffff;
+  border: 2px solid #ccc;
+  border-radius: 16px;
+  padding: 30px;
+  width: 90%;
+  max-width: 1000px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  opacity: 0;
+  animation: fadeIn 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* LEFT SIDE */
+.left-side {
+  flex-shrink: 0;
+  text-align: center;
+}
+
+.left-side h1 {
+  margin: 0;
+  font-size: 3.5rem;
+  font-family: "Bad Script", cursive;
+  font-weight: 700;
+}
+
+.left-side p {
+  margin-top: 8px;
+  font-size: 1.4rem;
+  opacity: 0.75;
+}
+
+/* RIGHT SIDE */
+.right-side {
+  position: relative;
+  flex: 1;
+}
+
+/* Hide radio inputs */
+input[type="radio"] {
+  display: none;
+}
+
+/* CARD SLIDER */
+.cards {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  margin-bottom: 20px;
+}
+
+.card {
+  position: absolute;
+  width: 60%;
+  height: 100%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border-radius: 14px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  border: 2px solid #bbb;
+  background-color: #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card img {
+  width: 90%;
+  height: 80%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* SLIDER LOGIC (5 songs) */
+#item-1:checked ~ .cards #song-5,
+#item-2:checked ~ .cards #song-1,
+#item-3:checked ~ .cards #song-2,
+#item-4:checked ~ .cards #song-3,
+#item-5:checked ~ .cards #song-4 {
+  transform: translateX(-40%) scale(0.8);
+  opacity: 0.4;
+  z-index: 0;
+}
+
+#item-1:checked ~ .cards #song-2,
+#item-2:checked ~ .cards #song-3,
+#item-3:checked ~ .cards #song-4,
+#item-4:checked ~ .cards #song-5,
+#item-5:checked ~ .cards #song-1 {
+  transform: translateX(40%) scale(0.8);
+  opacity: 0.4;
+  z-index: 0;
+}
+
+#item-1:checked ~ .cards #song-1,
+#item-2:checked ~ .cards #song-2,
+#item-3:checked ~ .cards #song-3,
+#item-4:checked ~ .cards #song-4,
+#item-5:checked ~ .cards #song-5 {
+  transform: translateX(0) scale(1);
+  opacity: 1;
+  z-index: 1;
+}
+
+/* PLAYER */
+.player {
+  margin-top: 20px;
+  border: 2px solid #ccc;
+  border-radius: 14px;
+  background-color: #f0f0f0;
+  color: #333;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  text-align: left;
+  position: relative;
+}
+
+.song-info {
+  display: none;
+}
+
+.song-info.active {
+  display: block;
+}
+
+.song-info .title {
+  font-size: 1.6rem;
+  font-family: "Comic Neue", cursive;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.song-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+  font-size: 1.1rem;
+  font-family: "Comic Neue", cursive;
+}
+
+.song-details .artist {
+  text-align: left;
+}
+
+.song-details .duration {
+  text-align: right;
+}
+
+.time-indicator {
+  font-size: 1rem;
+  margin-top: 3px;
+  display: flex;
+  justify-content: space-between;
+  font-family: "Comic Neue", cursive;
+  color: inherit;
+}
+
+.progress-bar {
+  height: 6px;
+  width: 100%;
+  background-color: #e0e0e0;
+  border-radius: 3px;
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  width: 0%;
+  border-radius: 3px;
+  background-color: #777;
+  transition: width 0.1s linear;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 15px;
+}
+
+.controls button {
+  background: none;
+  border: none;
+  font-size: 2.5rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.controls button:hover {
+  transform: scale(1.2);
+}
+
+.controls button.active {
+  color: #ff6b6b;
+}
+
+.extra-controls {
+  margin-top: 15px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-family: "Comic Neue", cursive;
+  gap: 10px;
+}
+
+.favorite-btn {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #777;
+  transition: color 0.3s ease;
+}
+
+.favorite-btn.favorited {
+  color: red;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal-content {
+  padding: 20px;
+  border-radius: 14px;
+  font-family: "Bad Script", cursive;
+  color: #333;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  max-width: 320px;
+  border: 2px solid #ccc;
+  text-align: center;
+  animation: popIn 0.5s ease-out;
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  font-size: 2rem;
+}
+
+.modal-content p {
+  font-size: 1.1rem;
+}
+
+.modal-close {
+  background: #f0f0f0;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  margin-top: 15px;
+  cursor: pointer;
+  font-family: "Bad Script", cursive;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  color: #333;
+}
+
+.modal-close:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+.notification {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  z-index: 10000;
+  animation: fadeInOut 2s ease-in-out;
+}
+
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0; }
+  10%, 90% { opacity: 1; }
+}
+
+/* Media Query for Tablets/Phones */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    padding: 10px;
+    gap: 10px;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .cards {
+    height: 40vh;
+    margin-bottom: 10px;
+  }
+
+  .card {
+    width: 80%;
+    height: 100%;
+  }
+
+  .controls button {
+    font-size: 2rem;
+  }
+
+  .left-side h1 {
+    font-size: 2.5rem;
+  }
+
+  .left-side p {
+    font-size: 1.2rem;
+  }
+
+  .player {
+    margin-top: 10px;
+    padding: 10px;
+  }
+
+  .song-info .title {
+    font-size: 1.4rem;
+  }
+
+  .song-details {
+    font-size: 1rem;
+  }
+
+  .time-indicator {
+    font-size: 0.9rem;
+  }
+
+  .controls button {
+    font-size: 2rem;
+  }
+
+  .extra-controls {
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 5px;
+    gap: 5px;
+  }
+
+  .cards {
+    height: 35vh;
+  }
+
+  .card {
+    width: 90%;
+  }
+
+  .controls button {
+    font-size: 1.8rem;
+  }
+
+  .left-side h1 {
+    font-size: 2rem;
+  }
+
+  .left-side p {
+    font-size: 1rem;
+  }
+
+  .player {
+    padding: 5px;
+  }
+
+  .song-info .title {
+    font-size: 1.2rem;
+  }
+
+  .song-details {
+    font-size: 0.9rem;
+  }
+
+  .time-indicator {
+    font-size: 0.8rem;
+  }
+
+  .controls button {
+    font-size: 1.8rem;
+  }
+}
+
+audio {
+  display: none;
+}
